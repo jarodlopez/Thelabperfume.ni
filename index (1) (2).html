@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffd9a3">
+<title>The Lab Perfume</title>
+<meta name="description" content="Perfumes premium originales. Elige y pide por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+:root{
+  --cocoa:#2a1606; --brown:#5a2a0c; --amber:#c8691d; --orange:#f0a35a; --peach:#f9b78a;
+  --cream:#fff3dc; --sand:#ffe3b8; --line:#f0d2a8; --muted:#8a6a50;
+  --serif:"DM Serif Display",Georgia,serif; --sans:"Manrope",system-ui,sans-serif;
+  --glass:rgba(255,232,196,.62); --glass-b:rgba(255,255,255,.7);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--cocoa);line-height:1.5;min-height:100vh;
+  background:linear-gradient(145deg,#ffc489 0%,#ffdfb0 32%,#fff0c2 62%,#ffe27a 100%) fixed;padding-bottom:120px}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--brown);outline-offset:3px}
+.app{max-width:1080px;margin:0 auto;padding:18px 18px 0}
+
+/* Encabezado */
+.top{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border-radius:50%;background:linear-gradient(145deg,#7a3410,#2a1606);color:#ffd98a;display:grid;place-items:center;font-family:var(--serif);font-size:1.3rem;border:2px solid #fff;box-shadow:0 4px 14px rgba(90,42,12,.28)}
+.top b{display:block;font-size:.98rem;font-weight:700}
+.top small{color:var(--muted);font-size:.76rem}
+.brand b{font-family:var(--serif);font-weight:400;font-size:1.35rem;line-height:1.1}
+.top .sp{flex:1}
+.pill-btn{width:46px;height:46px;border-radius:50%;border:1px solid var(--glass-b);background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:grid;place-items:center;position:relative}
+.pill-btn i{font-size:1.05rem;color:var(--cocoa)}
+.badge{position:absolute;top:-3px;right:-3px;min-width:19px;height:19px;border-radius:10px;background:var(--amber);color:#fff;font-size:.7rem;font-weight:700;display:grid;place-items:center;padding:0 5px}
+
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,6.4vw,3.1rem);line-height:1.1;margin:24px 0 18px;max-width:15ch;color:var(--cocoa)}
+.search{display:flex;align-items:center;gap:10px;background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--glass-b);border-radius:999px;padding:0 20px;height:54px;max-width:580px}
+.search input{flex:1;border:0;background:none;font:inherit;font-size:.95rem;outline:none;color:var(--cocoa);min-width:0}
+.search input::placeholder{color:var(--muted)}
+.search i{font-size:1.05rem;color:var(--muted)}
+
+/* Banner */
+.banner{margin:22px 0 6px;border-radius:26px;overflow:hidden;position:relative;padding:24px 22px;min-height:210px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px;
+  background:radial-gradient(circle at 82% 30%,rgba(255,214,140,.9),transparent 45%),linear-gradient(120deg,#9a5a1c,#c8862f 55%,#e8b25c);color:#fff;border:1px solid var(--glass-b)}
+.banner p{font-weight:600;font-size:1.05rem;line-height:1.3;max-width:19ch;text-shadow:0 1px 8px rgba(60,28,6,.35)}
+.banner a{background:#ffeccb;color:var(--cocoa);text-decoration:none;font-weight:700;font-size:.85rem;padding:9px 18px;border-radius:12px;box-shadow:0 3px 10px rgba(90,42,12,.25)}
+.banner .bts{position:absolute;right:14px;top:14px;height:92px;display:flex;gap:6px;align-items:flex-end;opacity:.9;pointer-events:none}
+.banner .bts svg{height:62px;width:auto}
+.banner .bts svg:nth-child(2){height:84px}
+.banner .bts svg:first-child{display:none}
+@media(min-width:700px){.banner .bts{right:40px;top:50%;transform:translateY(-50%);height:190px}.banner .bts svg{height:120px}.banner .bts svg:nth-child(2){height:170px}.banner .bts svg:first-child{display:block}}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.banner .hero-shade{display:none;position:absolute;inset:0;background:linear-gradient(90deg,rgba(42,22,6,.72),rgba(42,22,6,.12) 72%)}
+.banner.has-img .hero-shade{display:block}
+.banner.has-img .bts{display:none}
+.banner p,.banner a{position:relative;z-index:1}
+.banner a i{margin-right:6px}
+@media(min-width:700px){.banner{min-height:290px;padding:38px}.banner p{font-size:1.5rem}}
+
+/* Secciones */
+.sec{margin:26px 0 12px}
+.sec h2{font-size:1rem;font-weight:700}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--glass-b);background:var(--glass);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 18px;border-radius:999px;font-size:.86rem;font-weight:600}
+.chip small{opacity:.6;font-weight:700;margin-left:6px}
+.chip[aria-pressed="true"] small{opacity:.85}
+.lbl{font-size:.8rem;color:var(--muted);font-weight:700;margin:14px 0 6px}
+.bh{font-family:var(--serif);font-weight:400;font-size:1.45rem;margin:28px 0 2px;display:flex;align-items:baseline;gap:10px}
+.bh small{font-family:var(--sans);font-size:.78rem;color:var(--muted);font-weight:600}
+.chip[aria-pressed="true"]{background:var(--brown);color:#fff;border-color:var(--brown)}
+
+/* Tarjetas */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr);gap:20px}}
+@media(min-width:960px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{border-radius:24px;background:linear-gradient(180deg,rgba(255,213,170,.85),rgba(255,196,140,.8));border:1px solid var(--glass-b);overflow:hidden;cursor:pointer;padding:6px;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 18px rgba(150,80,20,.12)}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(150,80,20,.22)}
+.pic{border-radius:19px;aspect-ratio:1/1.05;position:relative;overflow:hidden;display:grid;place-items:center}
+.g0{background:radial-gradient(circle at 50% 70%,rgba(255,200,120,.7),transparent 60%),linear-gradient(150deg,#7a3410,#d87a2c)}
+.g1{background:radial-gradient(circle at 50% 70%,rgba(255,190,110,.6),transparent 60%),linear-gradient(150deg,#3b1b07,#b8601a)}
+.g2{background:radial-gradient(circle at 50% 70%,rgba(255,230,170,.7),transparent 60%),linear-gradient(150deg,#b86a2a,#f3b868)}
+.pic img{width:100%;height:100%;object-fit:cover}
+.pic svg.bt{width:44%;height:auto;filter:drop-shadow(0 8px 14px rgba(40,18,4,.4))}
+.sz{position:absolute;top:9px;left:9px;background:rgba(42,22,6,.45);color:#fff;font-size:.72rem;font-weight:600;padding:2px 10px;border-radius:999px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.heart{position:absolute;top:7px;right:7px;width:32px;height:32px;border-radius:50%;border:0;background:rgba(255,255,255,.3);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;z-index:2}
+.heart i{font-size:.95rem;color:#fff}
+.cb{padding:10px 6px 6px}
+.cb h3{font-size:.92rem;font-weight:700;line-height:1.25}
+.cb .fam{font-size:.76rem;color:#7a5638;margin-top:1px}
+.pr{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.pr b{font-size:1rem;font-weight:800}
+.plus i{font-size:.8rem}
+.plus{width:34px;height:34px;border-radius:50%;background:#fff;color:var(--cocoa);display:grid;place-items:center;font-size:1.3rem;line-height:1;box-shadow:0 2px 8px rgba(90,42,12,.2)}
+.empty{padding:50px 0;color:var(--muted);text-align:center}
+
+/* Barra inferior */
+.dock{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:40;display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(98,52,18,.52);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 10px 30px rgba(70,30,6,.35)}
+.dock button{border:0;background:none;width:52px;height:46px;border-radius:999px;display:grid;place-items:center;color:#ffe9c8;position:relative}
+.dock button:hover{background:rgba(255,255,255,.14)}
+.dock i{font-size:1.2rem}
+.dock .mid{width:60px;height:60px;margin:-4px 2px;background:radial-gradient(circle at 35% 30%,#ffe9b0,#e0a040 55%,#a8611a);box-shadow:0 4px 14px rgba(40,18,4,.45),inset 0 1px 2px rgba(255,255,255,.6);color:var(--cocoa)}
+.dock .mid:hover{background:radial-gradient(circle at 35% 30%,#fff0c4,#ebb04c 55%,#b06a1c)}
+.dock .badge{top:2px;right:6px}
+
+/* WhatsApp flotante */
+.wa{position:fixed;right:16px;bottom:calc(98px + env(safe-area-inset-bottom));z-index:41;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#c8691d,#5a2a0c);border:2px solid #ffd9a3;box-shadow:0 8px 24px rgba(70,30,6,.4);transition:transform .2s}
+.wa:hover{transform:scale(1.06)}
+.wa i{font-size:1.75rem;color:#ffe9c8}
+
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:40px 0 10px}
+footer a{color:var(--brown);font-weight:700}
+
+/* Hojas (detalle y pedido) */
+dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%;overflow:hidden}
+dialog::backdrop{background:rgba(42,22,6,.6);backdrop-filter:blur(3px)}
+dialog[open]{display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:linear-gradient(170deg,#ffe3b8,#ffd08e 70%,#ffe08a);width:100%;max-width:560px;max-height:94vh;overflow:auto;border-radius:32px 32px 0 0;position:relative;animation:up .28s ease-out}
+@keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.hero{position:relative;aspect-ratio:1/1;display:grid;place-items:center;overflow:hidden;border-radius:32px 32px 28px 28px;
+  background:radial-gradient(ellipse at 50% 45%,rgba(255,176,70,.95),rgba(190,100,30,.55) 38%,transparent 70%),linear-gradient(180deg,#1e0d03,#5a2a0c 65%,#8a4a1c)}
+.hero img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.hero svg.bt{width:32%;height:auto;position:relative;filter:drop-shadow(0 0 30px rgba(255,170,60,.7))}
+.hbar{position:absolute;top:14px;left:14px;right:14px;display:flex;align-items:center;justify-content:space-between;z-index:3;color:#fff}
+.hbar span{font-weight:600;font-size:1rem}
+.hbar .pill-btn{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.4)}
+.hbar .pill-btn i{color:#fff}
+.stats{display:flex;gap:8px;position:absolute;left:12px;right:12px;bottom:12px;z-index:2}
+.stat{flex:1;text-align:center;padding:9px 4px;border-radius:16px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff}
+.stat b{display:block;font-size:1rem;font-weight:800}
+.stat span{font-size:.7rem;opacity:.8}
+.thumbs{display:flex;gap:8px;padding:12px 16px 0;overflow-x:auto}
+.thumbs button{flex:none;width:54px;height:54px;border-radius:14px;border:2px solid transparent;padding:0;overflow:hidden;background:var(--sand)}
+.thumbs button[aria-current="true"]{border-color:var(--amber)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.info{margin:12px 12px 14px;padding:18px 18px 16px;border-radius:26px;background:rgba(255,236,205,.78);border:1px solid var(--glass-b)}
+.info .row1{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.info h2{font-size:1.4rem;font-weight:800;line-height:1.15}
+.info .sub{color:#7a5638;font-size:.88rem;margin-top:2px}
+.info .price{font-size:1.8rem;font-weight:800;white-space:nowrap}
+.info p{font-size:.86rem;color:#6e4e34;margin-top:10px}
+.notes{margin-top:10px;font-size:.85rem;display:grid;gap:3px;color:#6e4e34}
+.notes div{display:flex;gap:10px}
+.notes b{min-width:68px;font-weight:700;color:var(--cocoa)}
+.sizes{display:flex;gap:10px;margin:0 12px}
+.sizes button{flex:1;padding:14px 6px;border-radius:18px;border:0;background:rgba(255,255,255,.4);font-weight:700;font-size:.98rem;color:#6e4e34}
+.sizes button[aria-pressed="true"]{background:#fff;color:var(--cocoa);box-shadow:0 3px 10px rgba(120,60,10,.15)}
+.cta{display:flex;align-items:center;justify-content:space-between;width:calc(100% - 24px);margin:14px 12px 0;padding:17px 22px;border:0;border-radius:999px;background:linear-gradient(135deg,#fbc29a,#f4a672);color:var(--cocoa);font-weight:800;font-size:1rem;box-shadow:0 6px 16px rgba(190,100,40,.3)}
+.cta i{font-size:1rem}
+.ask{display:block;text-align:center;margin:14px 0 20px;color:var(--brown);font-weight:700;font-size:.88rem}
+
+/* Pedido */
+.cart-h{display:flex;align-items:center;justify-content:space-between;padding:20px 20px 4px}
+.cart-h h2{font-family:var(--serif);font-weight:400;font-size:1.6rem}
+.items{padding:6px 20px}
+.it{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(150,80,20,.18)}
+.it .t{flex:1;font-size:.92rem;font-weight:600}.it .t small{display:block;color:var(--muted);font-weight:500}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:30px;height:30px;border-radius:50%;border:0;background:#fff;line-height:1;font-weight:700}
+.tot{padding:14px 20px 0;display:flex;justify-content:space-between;font-weight:800;font-size:1.05rem}
+.cart-f{padding:4px 0 24px}
+.none{padding:34px 20px;text-align:center;color:#7a5638}
+
+@media(min-width:860px){
+  dialog[open]{align-items:center}
+  .sheet{border-radius:32px;max-width:920px;max-height:90vh}
+  .sheet.pd{display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+  .sheet.pd .l{overflow:auto;padding:10px}
+  .sheet.pd .r{overflow:auto;max-height:90vh;padding-top:14px}
+  .sheet.cartS{max-width:480px}
+  .hero{aspect-ratio:auto;height:100%;min-height:480px;border-radius:26px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="top">
+    <div class="logo" aria-hidden="true">L</div>
+    <div class="brand"><b>The Lab Perfume</b><small id="hi">Buenas tardes</small></div>
+    <div class="sp"></div>
+    <button class="pill-btn" id="openCartTop" aria-label="Ver mi pedido">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <span class="badge" id="badgeTop" hidden>0</span>
+    </button>
+  </div>
+
+  <h1>Encuentra un aroma que se sienta como tú.</h1>
+  <label class="search">
+    <input id="q" type="search" placeholder="Buscar perfume o marca" aria-label="Buscar perfume o marca">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </label>
+
+  <div class="banner" id="hero">
+    <img class="hero-img" id="heroImg" alt="" hidden>
+    <div class="hero-shade"></div>
+    <p id="heroTxt">Cuéntanos tu estilo y te recomendamos uno.</p>
+    <a id="advice" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i>Pedir recomendación</a>
+    <div class="bts" id="bts" aria-hidden="true"></div>
+  </div>
+
+  <div class="sec"><h2 id="colec">Catálogo por marca</h2></div>
+  <p class="lbl" id="brandLbl">Marcas</p>
+  <div class="chips" id="brands"></div>
+  <p class="lbl" id="typeLbl">Tipo</p>
+  <div class="chips" id="chips"></div>
+  <div id="grid" aria-labelledby="colec"></div>
+  <div class="empty" id="empty" hidden>No encontramos perfumes con ese filtro.</div>
+
+  <footer>The Lab Perfume · <a id="footWa" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a><span id="ig"></span></footer>
+</div>
+
+<nav class="dock" aria-label="Navegación">
+  <button id="goHome" aria-label="Inicio"><i class="fa-solid fa-house"></i></button>
+  <button class="mid" id="goColec" aria-label="Ver colección"><i class="fa-solid fa-spray-can-sparkles"></i></button>
+  <button id="openCart" aria-label="Mi pedido"><i class="fa-solid fa-bag-shopping"></i><span class="badge" id="badge" hidden>0</span></button>
+</nav>
+
+<a class="wa" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+</a>
+
+<dialog id="dlg" aria-label="Detalle del perfume"></dialog>
+<dialog id="cartDlg" aria-label="Mi pedido"></dialog>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { getFirestore, collection, getDocs, getDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+/* ====== CONFIGURA AQUÍ ====== */
+const FIREBASE = { apiKey:"", authDomain:"", projectId:"", storageBucket:"", messagingSenderId:"", appId:"" };
+const WHATSAPP = "50500000000";   // código de país + número, sin + ni espacios
+const INSTAGRAM = "";             // opcional: URL completa
+const HERO_IMAGE = "";            // opcional: URL de la portada (también se puede subir desde el admin)
+/* ============================= */
+
+const CATALOG = [{"i":"261783","n":"Cloud","p":100,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794778467_93d043d57af156e5997a.jpg?v=20260921","b":"Ariana Grande","c":"EDP","m":100,"d":"Presentación en 100 ml EDP"},{"i":"261784","n":"Cloud pink","p":110,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794778541_5ddbb7e9ebe2f0808f34.jpg?v=20260921","b":"Ariana Grande","c":"EDP","m":100},{"i":"261786","n":"Cloud 2.0 intense","p":105,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794778677_e42b99fe40d32ebc435d.jpg?v=20260921","b":"Ariana Grande","c":"EDP","m":100},{"i":"261787","n":"Sweet Like Candy","p":87,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794778742_debc0292317235f015b7.jpg?v=20260921","b":"Ariana Grande","c":"EDP","m":100},{"i":"261788","n":"Good Girl New York","p":135,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794778835_07c14e8190c9d1d65824.jpg?v=20260921","b":"Carolina Herrera","c":"EDP","m":80},{"i":"261790","n":"Good Girl Blush","p":147,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794779057_900ecf0371c3e27efcbe.jpg?v=20260921","b":"Carolina Herrera","c":"EDP","m":80},{"i":"261791","n":"Good Girl Blush Elixir","p":155,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794779198_d808cf6a77e06f066b96.jpg?v=20260921","b":"Carolina Herrera","c":"EDP","m":80},{"i":"261792","n":"Good Girl Jasmine Absolute","p":170,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794779255_94002ac27598f3733578.jpg?v=20260921","b":"Carolina Herrera","c":"EDP","m":80},{"i":"261793","n":"Eros Najim","p":85,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794779336_61f79775794c04f1b2ba.jpg?v=20260921","b":"Versace","c":"Parfum","m":100},{"i":"261794","n":"Eros Flame","p":107,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794779387_6d529b46d50b30627738.jpg?v=20260921","b":"Versace","c":"EDP","m":100},{"i":"261795","n":"Eros","p":97,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794779447_25c770a6439f656a85e0.jpg?v=20260921","b":"Versace","c":"EDP","m":100},{"i":"261797","n":"Toy Boy","p":87,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794779499_05f901f12fc912a9cb05.jpg?v=20260921","b":"Moschino","c":"EDP","m":100},{"i":"261798","n":"Minotaure","p":77,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794779569_e7281433e90345d90f64.jpg?v=20260921","b":"Paloma Picasso","c":"EDP","m":100},{"i":"261802","n":"Toy 2","p":95,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794779840_7e742d53e3ce1e5b4131.jpg?v=20260921","b":"Moschino","c":"EDP","m":100},{"i":"261803","n":"Toy 2 Bubble Gum","p":95,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794779924_0379ec3b49134ca36709.jpg?v=20260921","b":"Moschino","c":"EDP","m":100},{"i":"261807","n":"Signature","p":77,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794780075_55b6544fc073d503d8a6.png?v=20260921","b":"Mont Blanc","c":"EDP","m":90},{"i":"261809","n":"Eternity Moment","p":70,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794780153_fa66336659a9dc6991bf.jpg?v=20260921","b":"Calvin Klein","c":"EDP","m":100},{"i":"261811","n":"Bright Crystal","p":87,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794780446_db078b3313fca58a3d70.jpg?v=20260921","b":"Versace","c":"EDT","m":90},{"i":"261812","n":"Eros Pour Femme","p":97,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794780527_b74cf2bdb7132eb9deac.jpg?v=20260921","b":"Versace","c":"EDT","m":100},{"i":"261813","n":"Her New","p":120,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794780598_365cf35a68b80d422cde.jpg?v=20260921","b":"Burberry","c":"EDP","m":100},{"i":"261814","n":"Fakhar Black","p":47,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794780686_819abd6d4cee84dcf046.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261815","n":"Khamrah","p":77,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794780815_f19d02cb19b96be6cd74.webp?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261817","n":"Rome Intense","p":52,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794780927_32c4eea4c0e8317c63ae.jpg?v=20260921","b":"Mast Parfumes","c":"EDP","m":100},{"i":"261819","n":"Rome extradose","p":51,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794781055_42a842ba26104c662eeb.jpg?v=20260921","b":"Mast Parfumes","c":"EDP","m":100},{"i":"261821","n":"Rome Lucky","p":55,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794781110_598a23c562b5b11b921c.jpg?v=20260921","b":"Mast Parfumes","c":"EDP","m":100},{"i":"261824","n":"Rome Imagine Set","p":57,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794781230_787d43fd748c630b7ec5.jpg?v=20260921","b":"Mast Parfumes","c":"EDP","m":100,"k":"Sets"},{"i":"261827","n":"Aura Fresh","p":52,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794781318_c82cc5d330ae905cee6b.jpg?v=20260921","b":"Armaf","c":"EDP","m":100},{"i":"261830","n":"Jean Lowe Vibe","p":52,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794781561_4b6e2dc8961d8f5f204e.webp?v=20260921","b":"Maison Alhambra","c":"EDP","m":100},{"i":"261832","n":"Nitro Red","p":52,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794781605_e8664a6aa3b8b8079659.jpg?v=20260921","b":"Dumont","c":"EDP","m":100},{"i":"261833","n":"Tag Him","p":54,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794781717_b03e7eea626a11020062.jpg?v=20260921","b":"Armaf","c":"EDP","m":100},{"i":"261846","n":"His Confesión","p":55,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794782245_613854a9136bc8e875fb.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261848","n":"Fakhar Pride","p":49,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794782495_487cc4742bc66f70700f.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261850","n":"Adge Ai Oud For Glory","p":47,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794782561_d34958aa71ea13404e68.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261853","n":"Club de nuit Milestone set","p":80,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794782727_d543951b08540ac55feb.jpg?v=20260921","b":"Armaf","k":"Sets","d":"Set"},{"i":"261854","n":"Oddysey Mandarín SKY Set","p":72,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794782803_9a1ca87d5f67ae3148d9.jpg?v=20260921","b":"Armaf","k":"Sets","d":"Set"},{"i":"261856","n":"Oddysey Home set","p":72,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794782850_e37be1d5f9ce180611ed.jpg?v=20260921","b":"Armaf","k":"Sets","d":"Set"},{"i":"261858","n":"L'Haya Oud ROYALE","p":52,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794782999_2d90a3d61a56e955311e.jpg?v=20260921"},{"i":"261859","n":"Fakhar Pride Dama","p":45,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794783102_60be56afd9cd74409af8.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261860","n":"Amber Rouge","p":105,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794783163_837a83a490414bca3e0b.jpg?v=20260921","b":"Orientica","m":80},{"i":"261863","n":"Donna Intense","p":42,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794783220_5f9ca949c56bb3640d52.jpg?v=20260921","c":"EDP","m":100},{"i":"261866","n":"9 Am GOLD","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794783289_03bfbca5a99517169fdb.png?v=20260921","b":"Afnan","c":"EDP","m":100},{"i":"261871","n":"9 PM Women","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794783467_e22db9ccaa63f69249e4.jpg?v=20260921","b":"Afnan","c":"EDP","m":100},{"i":"261879","n":"9 AM Pour Femme","p":55,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794783675_95e99facdf2838f924a2.jpg?v=20260921","b":"Afnan","c":"EDP","m":100},{"i":"261884","n":"Hawas Ice","p":65,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794783811_d07925359bc2669b03f9.jpg?v=20260921","b":"Rasasi","c":"EDP","m":100},{"i":"261887","n":"Hawas Malibu","p":65,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794783865_08dfae66ea48a40c70bd.jpg?v=20260921","b":"Rasasi","c":"EDP","m":100},{"i":"261890","n":"Hawas Black","p":60,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794783932_ae6e77baa93c31f09408.jpg?v=20260921","b":"Rasasi","c":"EDP","m":100},{"i":"261891","n":"Yum Yum","p":75,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794783983_8bd408b69941cb86bc08.jpg?v=20260921","b":"Armaf","c":"EDP","m":100},{"i":"261893","n":"Yara Elixir","p":55,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794784032_4fcdf7a77c4191911e44.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261894","n":"Náutica Clasic","p":35,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794784122_54d8db2e212af22e2579.jpg?v=20260921","b":"Nautica","c":"EDT","m":100},{"i":"261897","n":"Náutica Pure Blue","p":35,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794784228_519e676ab6d04716cf01.jpg?v=20260921","b":"Nautica","c":"EDT","m":100},{"i":"261898","n":"Náutica Voyage Sport","p":35,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794784287_13f5fcb9e7fcf17a59a6.jpg?v=20260921","b":"Nautica","c":"EDT","m":100},{"i":"261899","n":"Oddysey Artisto","p":70,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794784343_b357b6839e3e3c80896f.jpg?v=20260921","b":"Armaf","c":"EDP","m":100},{"i":"261900","n":"Oddysey Home White","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794784404_4633e55dcc563cab4f4a.jpg?v=20260921","b":"Armaf","c":"EDP","m":100},{"i":"261902","n":"Club de Nuit Iconic","p":70,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794784477_849090a65bf89700ff1e.jpg?v=20260921","b":"Armaf","c":"EDP","m":100},{"i":"261903","n":"Royal Bleu","p":90,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794784569_94b766848ed624d5163d.jpg?v=20260921","b":"Orientica","c":"EDP","m":80},{"i":"261904","n":"Yara Rosa set","p":65,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794784665_4bd902e39e0d09507080.jpg?v=20260921","b":"Lattafa","k":"Sets","d":"Set"},{"i":"261906","n":"Honor and Glory","p":47,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794784753_23efabdf3571e6acf431.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261909","n":"Eclaire Set","p":55,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794784880_e6cb5e7871d169aa90f2.webp?v=20260921","b":"Lattafa","c":"EDP","m":120,"k":"Sets"},{"i":"261913","n":"Oddysey Montangne","p":55,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794784958_cfa814254adfc0d804f0.jpg?v=20260921","b":"Armaf","c":"EDP","m":100},{"i":"261915","n":"Oddysey Mango","p":57,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794785045_7b92f67bc1764bff0152.jpg?v=20260921","b":"Armaf","c":"EDP","m":100},{"i":"261917","n":"Oddysey Toffee Coffee","p":56,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794785114_5d2364797565f2e44161.jpg?v=20260921","b":"Armaf","c":"EDP","m":100},{"i":"261920","n":"Liquid Brum","p":65,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794785214_21d2dd95bcdbce3e0b05.jpg?v=20260921","b":"French Avenue","c":"EDP","m":100},{"i":"261923","n":"The Kingdom","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794785302_77592b68b6596382c8ca.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261928","n":"Aqua Dubai","p":80,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794785473_6af85a5b12fb3a20850e.jpg?v=20260921","b":"Al Haramain","c":"EDP","m":100},{"i":"261933","n":"GOLD Edition","p":65,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794785602_5e32499f54632d90b310.jpg?v=20260921","b":"Al Haramain","c":"EDP","m":60},{"i":"261936","n":"Rouge Edition","p":80,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794785749_51b2afd0b9728d4cd1b8.jpg?v=20260921","b":"Al Haramain","c":"EDP","m":120},{"i":"261938","n":"Asad Bourbon","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794785838_f14d7f786bc4e645d1d7.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261941","n":"Oddysey Mandarín Elixir","p":70,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794785950_c1695c1dbee410a0a465.jpg?v=20260921","b":"Armaf","c":"EDP","m":100},{"i":"261942","n":"Oddysey Mandarín limoni","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794786058_48c2decc85e11dfb2735.jpg?v=20260921","b":"Armaf","c":"EDP","m":100},{"i":"261943","n":"Oddysey Mandarín Sky","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794786186_eed6ed00248112cbdbc4.jpg?v=20260921","b":"Armaf","c":"EDP","m":100},{"i":"261945","n":"Oddysey Mandarín Homme","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794786248_ae00db9647c9316942b6.jpg?v=20260921","b":"Armaf","c":"EDP","m":100},{"i":"261947","n":"Estuche Armar club de nuit","p":80,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794786330_0eb45790e0ae797db5a8.jpg?v=20260921","b":"Armaf","k":"Sets","d":"Estuche de 4 piezas"},{"i":"261951","n":"Club de nuit Bling","p":90,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794786404_bdb0c5b8528346e35024.jpg?v=20260921","b":"Armaf","c":"EDP","m":75},{"i":"261952","n":"Club de nuit Urban Man Elixir","p":55,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794786470_292f96e872ee40909c76.jpg?v=20260921","b":"Armaf","m":105},{"i":"261953","n":"Club de nuit Intense","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794786528_726d8ee9ccdc37aed80f.jpg?v=20260921","b":"Armaf","c":"EDT","m":100},{"i":"261954","n":"9 PM night out","p":80,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794786590_2824af9f470c605edb3a.jpg?v=20260921","b":"Afnan","c":"EDP","m":100},{"i":"261955","n":"9 PM Elixir","p":75,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794786629_a120f4e99d04392a471d.jpg?v=20260921","b":"Afnan","m":100},{"i":"261956","n":"9 PM Rebel","p":65,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794786681_d48fbb0b317b4e35fc63.jpg?v=20260921","b":"Afnan","m":100},{"i":"261959","n":"9 PM","p":52,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794786727_e66d66a168eb7ffe98a6.jpg?v=20260921","b":"Afnan","c":"EDP","m":120},{"i":"261960","n":"Supremacy Silver","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794786774_40723a050a581fb5b37f.jpg?v=20260921","b":"Afnan","c":"EDP","m":100},{"i":"261961","n":"9 PM Rebel Set","p":80,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794786833_17776886bda2edf838fe.jpg?v=20260921","b":"Afnan","k":"Sets","d":"Set"},{"i":"261962","n":"Oddysey Bubai Chocolat","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794786883_8778f7605c38326eb524.jpg?v=20260921","b":"Armaf","c":"EDP","m":100},{"i":"261964","n":"9 AM Dive","p":52,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794787000_9379d5491596a1e93721.jpg?v=20260921","b":"Afnan","c":"EDP","m":100},{"i":"261965","n":"Uomo Intense","p":47,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794787047_4d3c27e2efc664453c1b.webp?v=20260921","c":"EDP","m":120},{"i":"261966","n":"Stallion 53","p":45,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794787158_6e5ad31600e2e5d3bac0.jpg?v=20260921","b":"Maison Alhambra","c":"EDP","m":100},{"i":"261967","n":"Hawas Tropical","p":65,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794787248_c1f96b39e7f46573b8fa.jpg?v=20260921","b":"Rasasi","c":"EDP","m":100},{"i":"261968","n":"Hawas Atlantis","p":65,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794787282_6abb7c9536628b216cef.jpg?v=20260921","b":"Rasasi","c":"EDP","m":100},{"i":"261969","n":"Asad Elixir","p":60,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794787369_7790bc1cf641e2800add.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261972","n":"Asad","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794787527_d3c8bb525934a2c7ebf8.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261973","n":"Khamrah","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794787624_8d51fd2858e81b8a5eee.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261976","n":"Khamrah Qahwa","p":55,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794787692_f4f5cf5f5cdcbd669835.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261978","n":"Náutica Voyage","p":40,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794787802_ed32a1ed6a662ea948d9.jpg?v=20260921","b":"Nautica","c":"EDP","m":100},{"i":"261982","n":"Aqua di Paris venizia","p":47,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794787949_31db775854c5396fc431.jpg?v=20260921","b":"Acqua Di Parisis","c":"EDP","m":100},{"i":"261986","n":"Aqua di Paris Magic Red","p":47,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794788033_e646c39e09a0a1a0bac1.jpg?v=20260921","b":"Acqua Di Parisis","c":"EDP","m":100},{"i":"261992","n":"Eclaire Pistache","p":60,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794788183_52f02d05c072f7893888.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261994","n":"Eclaire Banoffi","p":57,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794788224_861880b75a3950be1b47.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261995","n":"Eclaire","p":52,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794788273_57831aa92e46a8f49ad5.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"261998","n":"Yara set","p":67,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794788412_521d1d6e37187e27fcc1.jpg?v=20260921","b":"Lattafa","m":100,"k":"Sets","d":"Set Yara 100 ml"},{"i":"261999","n":"Mayar","p":57,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794788449_38e6f5a685480087f771.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"262000","n":"Noble Blush","p":52,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794788495_af32297ffccaa1024b2d.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"262001","n":"Yara moi","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794788586_5e6508c0c05d4080a621.jpg?v=20260921","b":"Lattafa","c":"EDP","m":100},{"i":"262004","n":"Yara Candy","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794788659_a60091d7d2eaf3aa3031.jpg?v=20260921","b":"Lattafa","m":100},{"i":"262006","n":"Yara Tous","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794788696_189820654a083c4c2947.jpg?v=20260921","b":"Lattafa","m":100},{"i":"262012","n":"Club de nuit Women set","p":83,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794788876_514804569eee124c2c8f.jpg?v=20260921","b":"Armaf","m":105,"k":"Sets"},{"i":"262013","n":"Oddysey candee set","p":83,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794788934_c61810593ae4b9e1034b.jpg?v=20260921","b":"Armaf","m":105,"k":"Sets"},{"i":"262016","n":"Haya","p":52,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794789068_8b1e7fdfc1f4fa88e232.webp?v=20260921","b":"Lattafa","m":100},{"i":"262018","n":"Oddysey candee","p":50,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794789111_5070bc2523c56dc23a6b.jpg?v=20260921","b":"Armaf","m":100},{"i":"262026","n":"Club de nuit cloud","p":65,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794789323_ba079805aff20e07298b.jpg?v=20260921","b":"Armaf","m":105},{"i":"262028","n":"Club de nuit Maleka","p":70,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794789360_541830f1b8815a6d2b74.jpg?v=20260921","b":"Armaf","m":105},{"i":"262030","n":"Club de nuit Imperiale","p":65,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794789426_7a78f5c1cfd40e1248df.jpg?v=20260921","b":"Armaf","m":105},{"i":"262033","n":"Club de nuit Women","p":45,"u":"https://unitedlabs.com.co/catalogapp-api/public/products/image/17373/1794789457_045e85b2b053c372ef4d.jpg?v=20260921","b":"Armaf","m":105}];
+const expand = c => ({id:"cat-"+c.i, name:c.n, brand:c.b||"", concentration:c.c||"", category:c.k||"", currency:"USD", sizes:[{ml:c.m||null, price:c.p}], description:c.d||"", images:c.u?[c.u]:[], available:true});
+const SAMPLE = CATALOG.map(expand);
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const sym = c => c === "NIO" ? "C$" : "$";
+const fmt = (n, c) => `${sym(c)}${Number(n||0).toLocaleString("es-NI")}`;
+const waLink = t => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`;
+const subOf = p => [p.brand, p.concentration].filter(Boolean).join(" · ") || p.family || "";
+const sizesOf = p => (p.sizes?.length ? p.sizes : [{ml:p.size, price:p.price}]).filter(s => s.price !== null && s.price !== "" && s.price !== undefined);
+const BOTTLE = `<svg class="bt" viewBox="0 0 100 150" aria-hidden="true"><rect x="38" y="6" width="24" height="20" rx="3" fill="#f0b45a"/><rect x="43" y="26" width="14" height="8" fill="#ffd98a"/><rect x="18" y="34" width="64" height="106" rx="12" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.75)" stroke-width="2"/><rect x="26" y="70" width="48" height="62" rx="6" fill="rgba(255,170,70,.5)"/><rect x="34" y="48" width="32" height="14" rx="3" fill="none" stroke="rgba(255,255,255,.65)"/></svg>`;
+const heartI = on => `<i class="fa-${on?'solid':'regular'} fa-heart"></i>`;
+
+const store = (k, d) => { try { return JSON.parse(localStorage.getItem(k) || d); } catch { return JSON.parse(d); } };
+const put = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
+
+const OTRAS = "Otras marcas";
+const brandOf = p => p.brand || OTRAS;
+let products = [], cat = "Todos", brand = "Todos", term = "";
+let cart = store("tlp_cart", "[]"), favs = store("tlp_fav", "[]");
+
+const h = new Date().getHours();
+$("#hi").textContent = h < 12 ? "Buenos días" : h < 19 ? "Buenas tardes" : "Buenas noches";
+$("#bts").innerHTML = BOTTLE + BOTTLE + BOTTLE;
+const hello = "Hola, quiero información sobre sus perfumes.";
+$("#waFloat").href = waLink(hello);
+$("#advice").href = waLink("Hola, ¿me recomiendan un perfume? Mi ocasión/estilo es: ");
+$("#footWa").href = waLink(hello);
+if (INSTAGRAM) $("#ig").innerHTML = ` · <a href="${esc(INSTAGRAM)}" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>`;
+
+function applyHero(d){
+  if (d.heroText) $("#heroTxt").textContent = d.heroText;
+  if (d.heroImage) { $("#heroImg").src = d.heroImage; $("#heroImg").hidden = false; $("#hero").classList.add("has-img"); }
+}
+
+async function load(){
+  if (!FIREBASE.projectId) { products = SAMPLE; return render(); }
+  try{
+    const db = getFirestore(initializeApp(FIREBASE));
+    try { const st = await getDoc(doc(db,"settings","site")); if (st.exists()) applyHero(st.data()); } catch(e){ console.warn(e); }
+    const snap = await getDocs(query(collection(db,"products"), orderBy("createdAt","desc")));
+    products = snap.docs.map(d => ({id:d.id, ...d.data()})).filter(p => p.available !== false);
+  }catch(e){ console.error(e); products = []; }
+  render();
+}
+
+function toggleFav(id){
+  favs = favs.includes(id) ? favs.filter(x => x !== id) : [...favs, id];
+  put("tlp_fav", favs); render();
+}
+
+function card(p, i){
+  const s = sizesOf(p), first = s[0] || {};
+  const price = s.length > 1 ? `<span style="font-size:.7rem;font-weight:600;color:#7a5638">Desde </span>${fmt(Math.min(...s.map(x=>+x.price)), p.currency)}` : fmt(first.price, p.currency);
+  const fav = favs.includes(p.id);
+  return `<article class="card" tabindex="0" role="button" data-id="${esc(p.id)}" aria-label="Ver ${esc(p.name)}">
+    <div class="pic g${i%3}">${p.images?.[0] ? `<img loading="lazy" src="${esc(p.images[0])}" alt="${esc(p.name)}">` : BOTTLE}
+      ${first.ml ? `<span class="sz">${esc(first.ml)} ml</span>` : ""}
+      <button class="heart" data-fav="${esc(p.id)}" aria-pressed="${fav}" aria-label="Guardar en favoritos">${heartI(fav)}</button></div>
+    <div class="cb"><h3>${esc(p.name)}</h3><div class="fam">${esc(subOf(p))}</div>
+      <div class="pr"><b>${price}</b><span class="plus" aria-hidden="true"><i class="fa-solid fa-plus"></i></span></div></div>
+  </article>`;
+}
+
+function render(){
+  // Tipo (Sets, etc.)
+  const cats = ["Todos", ...new Set(products.map(p => p.category).filter(Boolean))];
+  if (!cats.includes(cat)) cat = "Todos";
+  $("#chips").innerHTML = cats.length > 1 ? cats.map(c => `<button class="chip" aria-pressed="${c===cat}" data-c="${esc(c)}">${esc(c)}</button>`).join("") : "";
+  $("#typeLbl").hidden = cats.length < 2;
+
+  // Marcas con conteo, de la más vendida a la menos; "Otras marcas" al final
+  const counts = {};
+  products.forEach(p => { const b = brandOf(p); counts[b] = (counts[b] || 0) + 1; });
+  const brands = Object.keys(counts).sort((a,b) => (a===OTRAS) - (b===OTRAS) || counts[b] - counts[a] || a.localeCompare(b));
+  if (brand !== "Todos" && !counts[brand]) brand = "Todos";
+  $("#brands").innerHTML = brands.length > 1 ? ["Todos", ...brands].map(b => `<button class="chip" aria-pressed="${b===brand}" data-b="${esc(b)}">${esc(b)}${b==="Todos" ? "" : `<small>${counts[b]}</small>`}</button>`).join("") : "";
+  $("#brandLbl").hidden = brands.length < 2;
+
+  const list = products
+    .filter(p => (cat==="Todos" || p.category===cat) && (brand==="Todos" || brandOf(p)===brand) && `${p.name} ${p.brand||""}`.toLowerCase().includes(term))
+    .sort((a,b) => (b.featured?1:0) - (a.featured?1:0));
+  const groups = {};
+  list.forEach(p => (groups[brandOf(p)] ||= []).push(p));
+  let n = 0;
+  $("#grid").innerHTML = brands.filter(b => groups[b]).map(b => {
+    const g = groups[b];
+    return `<h3 class="bh">${esc(b)}<small>${g.length} ${g.length === 1 ? "perfume" : "perfumes"}</small></h3><div class="grid">${g.map(p => card(p, n++)).join("")}</div>`;
+  }).join("");
+  $("#empty").hidden = list.length > 0;
+}
+
+/* ---- Detalle ---- */
+function openProduct(id){
+  const p = products.find(x => x.id === id); if(!p) return;
+  const sizes = sizesOf(p), imgs = p.images || [];
+  let sel = 0;
+  const stats = [["Duración",p.longevity],["Familia",p.family],["Proyección",p.projection]].filter(s => s[1]);
+  const notes = [["Salida",p.notesTop],["Corazón",p.notesHeart],["Fondo",p.notesBase]].filter(n => n[1]);
+  const dlg = $("#dlg");
+  dlg.innerHTML = `<div class="sheet pd">
+    <div class="l">
+      <div class="hero">${imgs[0] ? `<img id="mm" src="${esc(imgs[0])}" alt="${esc(p.name)}">` : BOTTLE}
+        <div class="hbar">
+          <button class="pill-btn" id="bk" aria-label="Cerrar"><i class="fa-solid fa-chevron-left"></i></button>
+          <span>Detalles</span>
+          <button class="pill-btn" id="fv" aria-pressed="${favs.includes(p.id)}" aria-label="Guardar en favoritos">${heartI(favs.includes(p.id))}</button>
+        </div>
+        ${stats.length ? `<div class="stats">${stats.map(s=>`<div class="stat"><b>${esc(s[1])}</b><span>${s[0]}</span></div>`).join("")}</div>` : ""}
+      </div>
+      ${imgs.length > 1 ? `<div class="thumbs">${imgs.map((u,i)=>`<button data-i="${i}" aria-current="${i===0}" aria-label="Foto ${i+1}"><img src="${esc(u)}" alt=""></button>`).join("")}</div>` : ""}
+    </div>
+    <div class="r">
+      <div class="info">
+        <div class="row1"><div><h2>${esc(p.name)}</h2><div class="sub">${esc([p.brand, p.concentration, p.category].filter(Boolean).join(" · "))}</div></div><div class="price" id="pp"></div></div>
+        ${p.description ? `<p>${esc(p.description)}</p>` : ""}
+        ${notes.length ? `<div class="notes">${notes.map(n=>`<div><b>${n[0]}</b><span>${esc(n[1])}</span></div>`).join("")}</div>` : ""}
+      </div>
+      <div class="sizes" id="sz">${sizes.map((s,i)=>`<button data-s="${i}" aria-pressed="${i===0}">${s.ml ? esc(s.ml) + " ml" : "Único"}</button>`).join("")}</div>
+      <button class="cta" id="add"><span>Añadir al pedido</span><span id="ctaP" style="display:flex;align-items:center;gap:8px"></span></button>
+      <a class="ask" target="_blank" rel="noopener" href="${waLink(`Hola, tengo una pregunta sobre ${p.name} de The Lab Perfume.`)}"><i class="fa-brands fa-whatsapp"></i> Preguntar por este perfume</a>
+    </div></div>`;
+  const arrow = `<i class="fa-solid fa-arrow-right"></i>`;
+  const paint = () => { const s = sizes[sel] || {}; $("#pp").textContent = fmt(s.price, p.currency); $("#ctaP").innerHTML = `${fmt(s.price, p.currency)} ${arrow}`; };
+  paint();
+  $("#bk").onclick = () => dlg.close();
+  $("#fv").onclick = e => { toggleFav(p.id); const on = favs.includes(p.id); e.currentTarget.setAttribute("aria-pressed", on); e.currentTarget.innerHTML = heartI(on); };
+  dlg.querySelectorAll("#sz button").forEach(b => b.onclick = () => { sel = +b.dataset.s; dlg.querySelectorAll("#sz button").forEach(x => x.setAttribute("aria-pressed", x===b)); paint(); });
+  dlg.querySelectorAll(".thumbs button").forEach(b => b.onclick = () => { $("#mm").src = imgs[b.dataset.i]; dlg.querySelectorAll(".thumbs button").forEach(x => x.setAttribute("aria-current", x===b)); });
+  $("#add").onclick = () => {
+    const s = sizes[sel] || {}, key = `${p.id}|${s.ml}`;
+    const ex = cart.find(c => c.key === key);
+    if (ex) ex.qty++; else cart.push({key, name:p.name, ml:s.ml, price:+s.price, currency:p.currency || "USD", qty:1});
+    put("tlp_cart", cart); updateBadge(); dlg.close(); openCart();
+  };
+  dlg.showModal();
+}
+
+/* ---- Pedido ---- */
+function updateBadge(){
+  const n = cart.reduce((a,c) => a + c.qty, 0);
+  for (const id of ["#badge","#badgeTop"]) { $(id).textContent = n; $(id).hidden = n === 0; }
+}
+function totals(){
+  const t = {}; cart.forEach(c => t[c.currency] = (t[c.currency]||0) + c.price*c.qty);
+  return Object.entries(t).map(([c,v]) => fmt(v,c)).join(" + ");
+}
+function openCart(){
+  const d = $("#cartDlg");
+  const body = cart.length ? `
+    <div class="items">${cart.map((c,i)=>`<div class="it"><div class="t">${esc(c.name)}<small>${c.ml ? esc(c.ml)+" ml · " : ""}${fmt(c.price,c.currency)}</small></div>
+      <div class="qty"><button data-m="${i}" aria-label="Quitar uno">−</button><b>${c.qty}</b><button data-p="${i}" aria-label="Añadir uno">+</button></div></div>`).join("")}</div>
+    <div class="tot"><span>Total</span><span>${totals()}</span></div>
+    <div class="cart-f"><button class="cta" id="send"><span>Enviar pedido por WhatsApp</span><i class="fa-solid fa-arrow-right"></i></button></div>`
+    : `<div class="none">Tu pedido está vacío. Elige un perfume y presiona “Añadir al pedido”.</div>`;
+  d.innerHTML = `<div class="sheet cartS"><div class="cart-h"><h2>Mi pedido</h2><button class="pill-btn" id="cx" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button></div>${body}</div>`;
+  $("#cx").onclick = () => d.close();
+  d.querySelectorAll("[data-m]").forEach(b => b.onclick = () => { const i=+b.dataset.m; if(--cart[i].qty<=0) cart.splice(i,1); put("tlp_cart", cart); updateBadge(); openCart(); });
+  d.querySelectorAll("[data-p]").forEach(b => b.onclick = () => { cart[+b.dataset.p].qty++; put("tlp_cart", cart); updateBadge(); openCart(); });
+  const send = $("#send");
+  if (send) send.onclick = () => {
+    const lines = cart.map(c => `• ${c.qty} x ${c.name}${c.ml ? ` (${c.ml} ml)` : ""} — ${fmt(c.price*c.qty, c.currency)}`).join("\n");
+    window.open(waLink(`Hola, quiero hacer este pedido en The Lab Perfume:\n${lines}\nTotal: ${totals()}`), "_blank", "noopener");
+  };
+  if (!d.open) d.showModal();
+}
+
+/* ---- Eventos ---- */
+$("#chips").addEventListener("click", e => { const b=e.target.closest("[data-c]"); if(b){cat=b.dataset.c; render();} });
+$("#brands").addEventListener("click", e => { const b = e.target.closest("[data-b]"); if (b) { brand = b.dataset.b; render(); } });
+$("#q").addEventListener("input", e => { term = e.target.value.trim().toLowerCase(); render(); });
+const onGrid = e => {
+  const f = e.target.closest("[data-fav]");
+  if (f) { e.stopPropagation(); return toggleFav(f.dataset.fav); }
+  const c = e.target.closest(".card"); if (c) openProduct(c.dataset.id);
+};
+$("#grid").addEventListener("click", onGrid);
+$("#grid").addEventListener("keydown", e => { if ((e.key==="Enter"||e.key===" ") && e.target.classList.contains("card")) { e.preventDefault(); onGrid(e); } });
+for (const id of ["#dlg","#cartDlg"]) $(id).addEventListener("click", e => { if(e.target.id === id.slice(1)) e.target.close(); });
+$("#openCart").onclick = openCart; $("#openCartTop").onclick = openCart;
+$("#goHome").onclick = () => window.scrollTo({top:0,behavior:"smooth"});
+$("#goColec").onclick = () => $("#colec").scrollIntoView({behavior:"smooth"});
+
+applyHero({heroImage: HERO_IMAGE});
+updateBadge(); load();
+</script>
+</body>
+</html>
